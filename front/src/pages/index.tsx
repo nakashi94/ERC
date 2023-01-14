@@ -1,5 +1,6 @@
 import Head from "next/head";
 import { Inter } from "@next/font/google";
+import Link from "next/link";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -12,6 +13,17 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <header>
+        <div className="container mx-auto max-w-full">
+          <div className="bg-red-300 flex mx-24 px-12 justify-between items-center">
+            <Link href="/">ERC</Link>
+            <div className="flex">
+              <div>search icon</div>
+              <button>Log in</button>
+            </div>
+          </div>
+        </div>
+      </header>
       <h1 className="underline">Hello Next.js</h1>
     </>
   );
