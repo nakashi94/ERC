@@ -1,6 +1,9 @@
 import Head from "next/head";
 import { Inter } from "@next/font/google";
 import Link from "next/link";
+import Image from "next/image";
+
+import cooking from "../images/cooking_woman.png";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -14,8 +17,8 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <header>
-        <div className="container mx-auto max-w-full">
-          <div className="bg-red-300 flex mx-24 px-12 justify-between items-center">
+        <div className="container mx-auto px-12 max-w-full">
+          <div className="flex justify-between items-center">
             <Link href="/">ERC</Link>
             <div className="flex">
               <div>search icon</div>
@@ -24,7 +27,22 @@ export default function Home() {
           </div>
         </div>
       </header>
-      <h1 className="underline">Hello Next.js</h1>
+      <section className="py-4">
+        <div className="container mx-auto px-12 max-w-full">
+          <div className="items-center flex">
+            <div className="basis-1/2">
+              <h1 className="text-4xl mb-4 font-black">Heading1</h1>
+              <p className="mb-4 font-semibold">paragraph</p>
+              <button className="bg-amber-500 rounded-2xl px-8 py-2 hover:opacity-80">
+                Sign Up
+              </button>
+            </div>
+            <div className="basis-1/2">
+              <Image src={cooking} alt="image" width={400} height={400} />
+            </div>
+          </div>
+        </div>
+      </section>
     </>
   );
 }
