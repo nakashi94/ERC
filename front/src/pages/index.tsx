@@ -1,13 +1,20 @@
+import React from "react";
 import Head from "next/head";
 import { Inter } from "@next/font/google";
 import Link from "next/link";
 import Image from "next/image";
 
 import cooking from "../images/cooking_woman.png";
+import { Recipe } from "../models/recipe";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export default function Home() {
+type Props = {
+  recipe: Array<Recipe>;
+};
+
+// const Home: React.FC<Props> = ({ recipe }) => {
+const Home: React.FC<Props> = () => {
   return (
     <>
       <Head>
@@ -68,4 +75,17 @@ export default function Home() {
       </div>
     </>
   );
-}
+};
+
+// SSRでレシピのデータを取得
+// export const getServerSideProps = async () => {
+//   const res = await fetch("http://localhost:8080/v1/api/recipes");
+//   const recipe: Array<Recipe> = await res.json();
+//   return {
+//     props: {
+//       recipe,
+//     },
+//   };
+// };
+
+export default Home;
