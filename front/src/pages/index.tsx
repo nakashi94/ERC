@@ -43,6 +43,29 @@ export default function Home() {
           </div>
         </div>
       </section>
+      <div className="py-4">
+        <div className="container mx-auto px-12 max-w-full">
+          <h2>recipes stored recently</h2>
+          <div className="flex py-8">
+            <div className="box-border h-48 w-60 p-4 border-4">
+              <div>dish_name</div>
+              <div>cooking_time</div>
+            </div>
+            <div className="box-border h-48 w-60 p-4 border-4">
+              <div>dish_name</div>
+              <div>cooking_time</div>
+            </div>
+            <div className="box-border h-48 w-60 p-4 border-4">
+              <div>dish_name</div>
+              <div>cooking_time</div>
+            </div>
+            <div className="box-border h-48 w-60 p-4 border-4">
+              <div>dish_name</div>
+              <div>cooking_time</div>
+            </div>
+          </div>
+        </div>
+      </div>
     </>
   );
 }
