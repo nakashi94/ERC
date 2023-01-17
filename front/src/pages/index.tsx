@@ -1,9 +1,20 @@
+import React from "react";
 import Head from "next/head";
 import { Inter } from "@next/font/google";
+import Link from "next/link";
+import Image from "next/image";
+
+import cooking from "../images/cooking_woman.png";
+import { Recipe } from "../models/recipe";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export default function Home() {
+type Props = {
+  recipe: Array<Recipe>;
+};
+
+// const Home: React.FC<Props> = ({ recipe }) => {
+const Home: React.FC<Props> = () => {
   return (
     <>
       <Head>
@@ -12,7 +23,69 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <h1 className="underline">Hello Next.js</h1>
+      <header>
+        <div className="container mx-auto px-12 max-w-full">
+          <div className="flex justify-between items-center">
+            <Link href="/">ERC</Link>
+            <div className="flex">
+              <div>search icon</div>
+              <button>Log in</button>
+            </div>
+          </div>
+        </div>
+      </header>
+      <section className="py-4">
+        <div className="container mx-auto px-12 max-w-full">
+          <div className="items-center flex">
+            <div className="basis-1/2">
+              <h1 className="text-4xl mb-4 font-black">Heading1</h1>
+              <p className="mb-4 font-semibold">paragraph</p>
+              <button className="bg-amber-500 rounded-2xl px-8 py-2 hover:opacity-80">
+                Sign Up
+              </button>
+            </div>
+            <div className="basis-1/2">
+              <Image src={cooking} alt="image" width={400} height={400} />
+            </div>
+          </div>
+        </div>
+      </section>
+      <div className="py-4">
+        <div className="container mx-auto px-12 max-w-full">
+          <h2>recipes stored recently</h2>
+          <div className="flex py-8">
+            <div className="box-border h-48 w-60 p-4 border-4">
+              <div>dish_name</div>
+              <div>cooking_time</div>
+            </div>
+            <div className="box-border h-48 w-60 p-4 border-4">
+              <div>dish_name</div>
+              <div>cooking_time</div>
+            </div>
+            <div className="box-border h-48 w-60 p-4 border-4">
+              <div>dish_name</div>
+              <div>cooking_time</div>
+            </div>
+            <div className="box-border h-48 w-60 p-4 border-4">
+              <div>dish_name</div>
+              <div>cooking_time</div>
+            </div>
+          </div>
+        </div>
+      </div>
     </>
   );
-}
+};
+
+// SSRでレシピのデータを取得
+// export const getServerSideProps = async () => {
+//   const res = await fetch("http://localhost:8080/v1/api/recipes");
+//   const recipe: Array<Recipe> = await res.json();
+//   return {
+//     props: {
+//       recipe,
+//     },
+//   };
+// };
+
+export default Home;
