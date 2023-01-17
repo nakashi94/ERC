@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"net/http"
+	"web-service-api/routes"
 
 	"github.com/gin-gonic/gin"
 )
@@ -33,11 +34,15 @@ var albums = []Album{
 func main() {
 	fmt.Println("Hello GO!")
 
-	router := gin.Default()
-	router.GET("/v1/api/recipes", getAllRecipes)
-	router.GET("/albums", getAlbums)
+	router := routes.NewRouter()
 
-	router.Run("localhost:8080")
+	router.SetMiddleware()
+	// router.Engine.Group("/v1/api")
+	// router.Group("/v1/api")
+	// router.GET("/recipes", getAllRecipes)
+	router.Engine.GET("/albums", getAlbums)
+
+	router.Engine.Run("localhost:8080")
 }
 
 func getAllRecipes(ctx *gin.Context) {
