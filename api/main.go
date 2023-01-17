@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"net/http"
 	"web-service-api/routes"
 
@@ -19,11 +18,10 @@ var recipes = []Recipe{
 }
 
 func main() {
-	fmt.Println("Hello GO!")
-
 	router := routes.NewRouter()
 
 	router.SetMiddleware()
+	router.SetProxy()
 	// router.Engine.Group("/v1/api")
 	// router.Group("/v1/api")
 	// router.GET("/recipes", getAllRecipes)
