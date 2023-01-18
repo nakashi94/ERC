@@ -19,6 +19,11 @@ func NewRouter() *Router {
 	}
 }
 
+// serverを起動する
+func (r *Router) Serve() {
+	r.Engine.Run("localhost:8080")
+}
+
 // Routerのインスタンスにミドルウェアをセットする
 func (r *Router) SetMiddleware() {
 	r.Engine.Use(gin.Logger())
