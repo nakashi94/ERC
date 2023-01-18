@@ -19,6 +19,7 @@ func main() {
 
 	router.SetMiddleware()
 	router.SetProxy()
+	router.SetHealthChecker()
 	// router.Engine.Group("/v1/api")
 	// router.Group("/v1/api")
 	// router.GET("/recipes", getAllRecipes)
@@ -27,6 +28,7 @@ func main() {
 	router.Engine.Run("localhost:8080")
 }
 
+// 全てのレシピデータを取得する
 func getAllRecipes(ctx *gin.Context) {
 	ctx.IndentedJSON(http.StatusOK, recipes)
 }
