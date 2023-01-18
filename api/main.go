@@ -25,7 +25,7 @@ func main() {
 	// router.GET("/recipes", getAllRecipes)
 	router.Engine.GET("/v1/api/recipes", getAllRecipes)
 
-	router.Engine.Run("localhost:8080")
+	router.Serve()
 }
 
 // 全てのレシピデータを取得する
