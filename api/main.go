@@ -20,9 +20,6 @@ func main() {
 	router.SetMiddleware()
 	router.SetProxy()
 	router.SetHealthChecker()
-	// router.Engine.Group("/v1/api")
-	// router.Group("/v1/api")
-	// router.GET("/recipes", getAllRecipes)
 	router.Engine.GET("/v1/api/recipes", getAllRecipes)
 
 	router.Serve()
