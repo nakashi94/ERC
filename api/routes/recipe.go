@@ -2,6 +2,7 @@ package routes
 
 import (
 	"net/http"
+	"web-service-api/infrastructures/database"
 	"web-service-api/models"
 
 	"github.com/gin-gonic/gin"
@@ -13,7 +14,8 @@ var recipes = []models.Recipe{
 	{ID: "3", UserID: "abc", DishName: "a", URL: "http", Category: "curry", Media: "YouTube", Repeat: "1", CookingTime: 20, CreatedAt: "2023-01-18 12:30:24.241566", UpdatedAt: "2023-01-18 12:30:24.241566"},
 }
 
-func (r *Router) NewTaskRouter() {
+// Routerに各エンドポイントを設定
+func (r *Router) NewTaskRouter(conn *database.Conn) {
 	g := r.Engine.Group("/v1/api")
 	g.GET("/recipes", getAllRecipes)
 	g.POST("/recipes", storeRecipe)
