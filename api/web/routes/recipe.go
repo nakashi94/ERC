@@ -15,8 +15,9 @@ var recipes = []models.Recipe{
 }
 
 // Routerに各エンドポイントを設定
-func (r *Router) NewTaskRouter(conn *database.Conn) {
+func (r *Router) NewRecipeRouter(conn *database.Conn) {
 	g := r.Engine.Group("/v1/api")
+	// g.GET("/recipes", getAllRecipes)
 	g.GET("/recipes", getAllRecipes)
 	g.POST("/recipes", storeRecipe)
 	g.GET("/recipes/:id", getRecipeByID)

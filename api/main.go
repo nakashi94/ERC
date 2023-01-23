@@ -3,7 +3,7 @@ package main
 import (
 	"log"
 	"web-service-api/infrastructures/database"
-	"web-service-api/routes"
+	"web-service-api/web/routes"
 
 	"github.com/joho/godotenv"
 )
@@ -32,7 +32,7 @@ func main() {
 	router.SetMiddleware()
 	router.SetProxy()
 	router.SetHealthChecker()
-	router.NewTaskRouter(conn)
+	router.NewRecipeRouter(conn)
 
 	router.Serve()
 }
